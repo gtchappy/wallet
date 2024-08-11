@@ -12,7 +12,7 @@ const NavWrapper = styled.div`
     > ul {
         display: flex;
         justify-content: space-between;
-
+        padding-inline-start: 0;
         > li {
             text-align: center; /* 文本居中 */
             flex: 1; /* 每个列表项占据可用空间 */

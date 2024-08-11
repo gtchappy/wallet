@@ -24,6 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: $font-hei;
   font-size: 16px;
+  overscroll-behavior: none;
 }
 
 /*
@@ -67,4 +68,9 @@ a {
   width: 1em;
   height: 1em;
   display: inline-block;
+}
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
 }
