@@ -10,7 +10,7 @@ type  Props = {
 
 function Icon(props: Props) {
     return (
-        <svg className="icon" fill="red">
+        <svg className="icon">
             <use href={`#${props.name}`}></use>
         </svg>
     )

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import React from "react";
 import Icon from "./Icon";
 
@@ -14,17 +14,26 @@ const NavWrapper = styled.div`
         justify-content: space-between;
 
         > li {
-            flex: 1; /* 每个列表项占据可用空间 */
             text-align: center; /* 文本居中 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4px 0;
+            flex: 1; /* 每个列表项占据可用空间 */
 
-            > .icon {
-                width: 24px;
-                height: 24px;
+            > a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 4px 0;
+
+                > .icon {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                &.active {
+                    color: red;
+                    fill: red;
+                }
+
             }
         }
     }
@@ -34,16 +43,22 @@ function Nav() {
     return <NavWrapper>
         <ul>
             <li>
-                <Icon name="tag"/>
-                <Link to="/tags">标签页</Link>
+                <NavLink className={({isActive}) => isActive ? "active" : ""} to="/tags">
+                    <Icon name="tag"/>
+                    标签页
+                </NavLink>
             </li>
             <li>
-                <Icon name="money"/>
-                <Link to="/money">记账页</Link>
+                <NavLink className={({isActive}) => isActive ? "active" : ""} to="/money">
+                    <Icon name="money"/>
+                    记账页
+                </NavLink>
             </li>
             <li>
-                <Icon name="chart"/>
-                <Link to="/statistics">统计页</Link>
+                <NavLink className={({isActive}) => isActive ? "active" : ""} to="/statistics">
+                    <Icon name="chart"/>
+                    统计页
+                </NavLink>
             </li>
         </ul>
     </NavWrapper>

@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import React from "react";
-import Statistics from "./Statistics";
 
 function Money() {
     return (
