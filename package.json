@@ -89,6 +89,8 @@
     ]
   },
   "devDependencies": {
+    "svg-sprite-loader": "^6.0.11",
+    "svgo-loader": "^4.0.0",
     "typescript-plugin-styled-components": "^3.0.0"
   },
   "jest": {
