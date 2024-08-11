@@ -1,32 +1,20 @@
 import React from "react";
 import {Routes, Route, Link, Navigate, HashRouter} from "react-router-dom";
 import styled from "styled-components";
+import Nav from "./components/Nav";
 
 const Wrapper = styled.div`
-    border: 1px red solid;
+    //border: 1px red solid;
     height: 100vh;
     display: flex;
     flex-direction: column;
 `
 const Main = styled.div`
-    border: 1px green solid;
+    //border: 1px green solid;
     flex-grow: 1;
     overflow: auto;
 `
-const Nav = styled.div`
-    border: 1px blue solid;
 
-    > ul {
-        display: flex;
-        justify-content: space-between;
-
-        > li {
-            flex: 1; /* 每个列表项占据可用空间 */
-            text-align: center; /* 文本居中 */
-            padding: 16px;
-        }
-    }
-`
 
 function App() {
     return (
@@ -41,19 +29,7 @@ function App() {
                         <Route path="*" element={<Navigate to="/money"/>}/>
                     </Routes>
                 </Main>
-                <Nav>
-                    <ul>
-                        <li>
-                            <Link to="/tags">tags</Link>
-                        </li>
-                        <li>
-                            <Link to="/money">money</Link>
-                        </li>
-                        <li>
-                            <Link to="/statistics">statistics</Link>
-                        </li>
-                    </ul>
-                </Nav>
+                <Nav/>
             </Wrapper>
         </HashRouter>
     );
