@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from "react";
+import React from "react";
 
 const Wrapper = styled.section`
     display: flex;
@@ -70,13 +70,18 @@ const Wrapper = styled.section`
         }
     }
 `;
-
-const NumberPadSection: React.FC = () => {
-    const [output, setOutput] = useState('0')
+type Props = {
+    value: string,
+    onChange: (value: string) => void
+}
+const NumberPadSection: React.FC<Props> = (props) => {
+    const {value, onChange} = props
     const inputNum = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent
-        if (text===null){return}
-        switch (text){
+        if (text === null) {
+            return
+        }
+        switch (text) {
             case '0':
             case '1':
             case '2':
@@ -87,39 +92,38 @@ const NumberPadSection: React.FC = () => {
             case '7':
             case '8':
             case '9':
-                if (output==='0'){
-                    setOutput(text)
-                }else {
-                    setOutput(output+text)
+                if (value === '0') {
+                    onChange(text)
+                } else {
+                    onChange(value + text)
                 }
                 break;
             case '删除':
-                if (output.length===1){
-                    setOutput('0')
+                if (value.length === 1) {
+                    onChange('0')
                 } else {
-                    setOutput(output.slice(0,-1))
+                    onChange(value.slice(0, -1))
                 }
                 break
             case '清空':
-                setOutput('0')
+                onChange('0')
                 console.log('清空');
                 break
             case 'OK':
                 console.log('OK');
                 break
             case '.':
-                if (output.includes('.'))
-                {return;}
-                else {
-                    setOutput(output+text)
+                if (value.includes('.')) {
+                    return;
+                } else {
+                    onChange(value + text)
                 }
                 break
         }
     }
-
     return (
         <Wrapper>
-            <div className="output">{output}</div>
+            <div className="output">{value}</div>
             <div className="pad clearfix" onClick={inputNum}>
                 <button>1</button>
                 <button>2</button>
