@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React  from "react";
+import React from "react";
 import useTags from "../useTags";
 
 const Wrapper = styled.section`
@@ -47,7 +47,8 @@ const TagsSection: React.FC<Props> = (props) => {
     const onAddTag = () => {
         const tagName = window.prompt('新标签的名称为')
         if (tagName) {
-            setTags([...tags, tagName])
+            const newTagName = {id: tags[tags.length - 1].id + 1, name: tagName}
+            setTags([...tags, newTagName])
         }
     }
     const onToggleTag = (tag: string) => {
@@ -56,18 +57,17 @@ const TagsSection: React.FC<Props> = (props) => {
         }
     }
     const selected = (tag: string) => value.indexOf(tag) >= 0 ? 'selected' : undefined
-
     return (
         <Wrapper>
             <ol>
-                {tags.map((tag, index) => {
-                    return (<li key={index}
+                {tags.map((tag) => {
+                    return (<li key={tag.id}
                                 onClick={() => {
-                                    onToggleTag(tag)
+                                    onToggleTag(tag.name)
                                 }}
-                                className={selected(tag)}
+                                className={selected(tag.name)}
                     >
-                        {tag}
+                        {tag.name}
                     </li>)
                 })}
             </ol>

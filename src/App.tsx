@@ -3,6 +3,7 @@ import {Routes, Route, Navigate, HashRouter} from "react-router-dom";
 import Tags from "./views/Tags";
 import Money from "./views/Money";
 import Statistics from "./views/Statistics";
+import Tag from "./views/Tag";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/tags" element={<Tags/>}/>
                 <Route path="/money" element={<Money/>}/>
                 <Route path="/statistics" element={<Statistics/>}/>
+                <Route path="/tags/:id" element={<Tag/>}/>
                 <Route path="*" element={<Navigate to="/money"/>}/>
             </Routes>
         </HashRouter>
