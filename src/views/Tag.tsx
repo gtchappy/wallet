@@ -24,7 +24,7 @@ const InputWrapper = styled.div`
 const Tag: React.FC = () => {
     const {findTag, updateTag, deleteTag} = useTags()
     const {id} = useParams()
-    const tag = id ? findTag(parseInt(id)) : {id: 999, name: "error"}
+    const tag = id ? findTag(id) : {id:'123', name: "error"}
     const navigate = useNavigate()
     const onClickBack = () => {
         navigate('/tags')
