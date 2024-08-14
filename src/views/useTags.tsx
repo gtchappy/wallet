@@ -9,9 +9,16 @@ const useTags = () => {
             {id: 3, name: '行'},
         ]
     )
-    const findTag = (id:number) => {
+    const findTag = (id: number) => {
         return tags.filter((tag) => tag.id === id)[0]
     }
-    return {tags, setTags,findTag}
+    const updateTag = (id: number, {name}: { name: string }) => {
+        //map是深拷贝的吗
+        setTags(tags.map(tag => tag.id === id ? {id, name} : tag))
+    };
+    const deleteTag = (id: number) => {
+        setTags(tags.filter(tag => tag.id !== id))
+    }
+    return {tags, setTags, findTag, updateTag, deleteTag}
 }
 export default useTags

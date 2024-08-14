@@ -1,4 +1,5 @@
 import React from "react";
+import cs from "classnames"
 
 require("icons/money.svg")
 require("icons/tag.svg")
@@ -6,13 +7,14 @@ require("icons/chart.svg")
 require("icons/left.svg")
 
 type  Props = {
-    name: string
-}
+    name?: string
+} & React.SVGAttributes<SVGElement>
 
-function Icon(props: Props) {
+const  Icon =(props: Props) =>{
+    const {name, children, className, ...rest} = props
     return (
-        <svg className="icon">
-            <use href={`#${props.name}`}></use>
+        <svg className={cs('icon', className)} {...rest}>
+            {props.name && <use href={`#${props.name}`}></use>}
         </svg>
     )
 }

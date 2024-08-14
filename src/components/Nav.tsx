@@ -43,7 +43,7 @@ function Nav() {
     return <NavWrapper>
         <ul>
             <li>
-                <NavLink className={({isActive}) => isActive ? "active" : ""} to="/tags">
+                <NavLink end className={({isActive}) => isActive ? "active" : ""} to="/tags">
                     <Icon name="tag"/>
                     标签页
                 </NavLink>
