@@ -73,9 +73,10 @@ const Wrapper = styled.section`
 type Props = {
     value: string,
     onChange: (value: string) => void
+    onOk:()=>void
 }
 const NumberPadSection: React.FC<Props> = (props) => {
-    const {value, onChange} = props
+    const {value, onChange, onOk} = props
     const inputNum = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent
         if (text === null) {
@@ -111,6 +112,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 break
             case 'OK':
                 console.log('OK');
+                onOk()
                 break
             case '.':
                 if (value.includes('.')) {
@@ -136,7 +138,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
-                <button className="ok">OK</button>
+                <button className="ok" >OK</button>
                 <button className="zero">0</button>
                 <button className="dot">.</button>
             </div>

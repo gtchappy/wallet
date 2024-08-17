@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Icon from '../components/Icon';
 import {Link} from 'react-router-dom';
-import useTags from "./useTags";
+import useTags from "../hooks/useTags";
 import Button from "../components/Button";
 import Center from "../components/Center";
 import Space from "../components/Space";
