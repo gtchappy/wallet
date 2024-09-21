@@ -1,12 +1,13 @@
-import {useEffect, useState} from "react";
-import {useUpdate} from "./useUpdate";
+import { useEffect, useState } from "react";
+import { useUpdate } from "./useUpdate";
 
-type RecordItem = {
-    tagIds: string[]
-    note: string
-    category: '+' | '-'
-    amount: string
-}
+export type RecordItem = {
+    amount: string;
+    category: '+' | '-';
+    createAt: string;
+    note: string;
+    tagIds: string[];
+};
 export const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
     useEffect(() => {
@@ -21,5 +22,5 @@ export const useRecords = () => {
         setRecords([...records, record])
     }
 
-    return {records, addRecord}
+    return { records, addRecord }
 }

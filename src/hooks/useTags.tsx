@@ -18,7 +18,7 @@ const useTags = () => {
         }
     }
     const findTag = (id: string) => {
-        return tags.filter((tag) => tag.id === id)[0]
+        return tags.filter(tag => tag.id === id)[0]
     }
     const updateTag = (id: string, {name}: { name: string }) => {
         // TODO map是深拷贝的吗

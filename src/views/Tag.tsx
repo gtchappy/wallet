@@ -9,7 +9,7 @@ import Input from "../components/Input";
 import Center from "../components/Center";
 import Space from "../components/Space";
 
-const Topbar = styled.header`
+const TopBar = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,11 +32,11 @@ const Tag: React.FC = () => {
     if (tag) {
         return (
             <Layout>
-                <Topbar>
+                <TopBar>
                     <Icon name="left" className="frank" onClick={onClickBack}/>
                     <span>编辑标签</span>
                     <Icon name=""/>
-                </Topbar>
+                </TopBar>
                 <InputWrapper>
                     <Input label="标签名" type="text" placeholder="标签名" value={tag.name} onChange={(e) => {
                         updateTag(tag.id, {name: e.target.value});
